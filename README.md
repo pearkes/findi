@@ -16,18 +16,23 @@ I will attempt to keep up with Apple's changing API, as it breaks horribly when 
 Use
 -------
 
-# Initialize findmyiphone with your Apple ID
+Initialize findmyiphone with your Apple ID
 
+```python
 iphone = FindMyIPhone('email@example.com', 'password')
+```
+Locate the iPhone
 
-# Locate the iPhone
-
+```python
 iphone_location = iphone.locate()
+```
 
-# iPhone.locate() returns a dictionary that contains a latitude and longitude
+iPhone.locate() returns a dictionary that contains a latitude and longitude
 
+```python
 latitude = iphone_location.get('latitude')
 longitude = iphone_location.get('longitude')
+```
 
 
 LICENSE
