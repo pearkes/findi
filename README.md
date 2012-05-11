@@ -1,5 +1,5 @@
 findi
-=====
+-------
 
 A port of a port of sosumi. Find your iPhone through Apple's API.
 
@@ -14,7 +14,7 @@ That was inspired by:
 I will attempt to keep up with Apple's changing API, as it breaks horribly when the modify version numbers. Fair warning.
 
 Use
-=====
+-------
 
 # Initialize findmyiphone with your Apple ID
 
