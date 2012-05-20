@@ -11,7 +11,7 @@ That was inspired by:
 
 [tyler hall's sosumi](https://github.com/tylerhall/sosumi)
 
-I will attempt to keep up with Apple's changing API, as it breaks horribly when the modify version numbers. Fair warning.
+I will attempt to keep up with Apple's changing API, as it breaks horribly when they update the app and modify version numbers. Fair warning.
 
 Use
 -------
