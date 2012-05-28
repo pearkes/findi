@@ -237,8 +237,8 @@ class FindMyIPhone(object):
             device.id = json_device['id']
             device.name = json_device['name'].encode('utf-8')
             device.deviceClass = json_device['deviceClass']
-            device.chargingStatus = json_device['a']
-            device.batteryLevel = json_device['b']
+            device.batteryStatus = json_device['batteryStatus']
+            device.batteryLevel = json_device['batteryLevel']
 
             self.devices.append(device)
 
