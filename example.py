@@ -18,3 +18,5 @@ iphone_location = iphone.locate()
 
 latitude = iphone_location.get('latitude')
 longitude = iphone_location.get('longitude')
+
+print latitude, longitude
