@@ -34,6 +34,10 @@ latitude = iphone_location.get('latitude')
 longitude = iphone_location.get('longitude')
 ```
 
+Recording Your Location
+-------
+There is an example Heroku application called [findi-heroku-example(https://github.com/pearkes/findi-heroku-example) with instructions
+for setting up a service that stores your location over a period of time.
 
 LICENSE
 -------
