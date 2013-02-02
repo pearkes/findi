@@ -16,22 +16,23 @@ I will attempt to keep up with Apple's changing API, as it breaks horribly when 
 Use
 -------
 
-Initialize findmyiphone with your Apple ID
+Initialize findmyiphone with your Apple ID.
 
 ```python
-iphone = FindMyIPhone('email@example.com', 'password')
-```
-Locate the iPhone
-
-```python
-iphone_location = iphone.locate()
+findi = FindMyIPhone('email@example.com', 'password')
 ```
 
-iPhone.locate() returns a dictionary that contains a latitude and longitude
+List your devices.
 
 ```python
-latitude = iphone_location.get('latitude')
-longitude = iphone_location.get('longitude')
+print findi.devices
+```
+
+Get the first devices location:
+
+```python
+iphone = findi.devices[0]
+print iphone.latitude, iphone.longitude
 ```
 
 Recording Your Location
