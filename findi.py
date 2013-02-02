@@ -4,28 +4,12 @@ import urllib2
 import datetime
 import time
 import base64
-
-json_available = True
-json = None
-try:
-    import simplejson as json
-except ImportError:
-    try:
-        import json
-    except ImportError:
-        try:
-            # Google Appengine offers simplejson via django
-            from django.utils import simplejson as json
-        except ImportError:
-            json_available = False
+import json
 
 class FindMyIPhone(object):
     partition = None
 
     def __init__(self, username, password, debug=False):
-        if not json_available:
-            raise Exception("json library required")
-
         self.devices = []
         self.debug = debug
         self.username = username
@@ -52,15 +36,15 @@ class FindMyIPhone(object):
 
     def locate(self, device_num=0, max_wait=300):
         start = int(time.time())
+        device = self.devices[device_num]
 
-        while not self.devices[device_num].location_finished:
+        while not hasattr(device, 'location_finished') or not device.location_finished:
             # log
             if int(time.time()) - start > max_wait:
                 raise Exception("Unable to find location within '%s' seconds" % max_wait)
             time.sleep(5)
             self.update_devices()
 
-        device = self.devices[device_num]
         return {
             'latitude': device.latitude,
             'longitude': device.longitude,
@@ -221,6 +205,7 @@ class FindMyIPhone(object):
         self.devices = []
         # log 'Parsing len(json_obj.content) devices...'
         for json_device in json_obj['content']:
+
             device = Device()
             if json_device.get('location') and type(json_device['location']) is dict:
                 device.location_timestamp = datetime.datetime.fromtimestamp(
@@ -280,14 +265,11 @@ class FindMyIPhone(object):
 
 class Device(object):
 
-    id = '0000000000000000000000000000000000000000'
-    name = 'unknown iOS device'
-
     def __init__(self, **kwargs):
         self.__dict__.update(kwargs)
 
     def __repr__(self):
-        return '<Device id="%s" name="%s">' % (self.id, self.name,)
+        return '<Device %s>' % self.name
 
 
 class HTTPErrorProcessor(urllib2.HTTPErrorProcessor):
