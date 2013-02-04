@@ -19,6 +19,7 @@ Use
 Initialize findmyiphone with your Apple ID.
 
 ```python
+from findi import FindMyIPhone
 findi = FindMyIPhone('email@example.com', 'password')
 ```
 
