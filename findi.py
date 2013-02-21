@@ -44,6 +44,7 @@ class FindMyIPhone(object):
                 raise Exception("Unable to find location within '%s' seconds" % max_wait)
             time.sleep(5)
             self.update_devices()
+            device = self.devices[device_num]
 
         return {
             'latitude': device.latitude,
